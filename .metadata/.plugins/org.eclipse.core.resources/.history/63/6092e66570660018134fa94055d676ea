@@ -1,0 +1,31 @@
+package com.ms;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+
+import org.springframework.stereotype.Service;
+
+
+
+@Service
+@Path("/servi")
+public class MainService {
+
+
+@GET
+@Path("/hai/{name}")
+@Produces("text/plain")
+
+public String hello(@PathParam("name") String name)
+{
+	Person a[]=new Person[1];
+	a[0].id=10;
+	a[0].age=34;
+	a[0].name="hrllo";
+	a[0].salary=46;
+	
+	return "hello "+name;
+}
+}

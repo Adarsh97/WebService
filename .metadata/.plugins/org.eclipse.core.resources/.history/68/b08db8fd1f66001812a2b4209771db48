@@ -1,0 +1,23 @@
+package mysqlstart;
+
+import java.sql.*;
+
+public class DBconnect {
+
+	private Connection cn;
+	private Statement st;
+	private ResultSet rt;
+	
+	public DBconnect()
+	{
+		try
+		{
+			Class.forName("com.mysql.jdbc.Driver");
+		}
+		catch(Exception ex)
+		{
+			System.out.println("error"+ ex);
+		}
+	}
+	
+}

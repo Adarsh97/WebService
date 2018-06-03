@@ -1,0 +1,12 @@
+package com.ms;
+
+public class MainService {
+
+@Service
+@GET
+@Path("/serv")
+public String hello(@PathParam("name") String name)
+{
+	
+}
+}

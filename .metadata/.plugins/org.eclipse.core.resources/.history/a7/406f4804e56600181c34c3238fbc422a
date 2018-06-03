@@ -1,0 +1,73 @@
+package com.ms;
+
+import java.util.ArrayList;
+// import java.util.List;
+
+// import java.awt.PageAttributes.MediaType;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.POST;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.springframework.stereotype.Service;
+
+
+
+@Service
+@Path("/servi")
+public class MainService {
+	ArrayList <Person> p=new ArrayList<Person>();
+
+/*@GET
+@Path("/getByName/{name}/")
+@Produces("application/json")*/
+
+public String getByName(/*@PathParam("name")*/ String name)
+{	Person j = null;
+ String s="";
+	for(Person i : p)
+	{
+		if(i.getName().equals(name))
+		{
+			s+=i.toString()+ " ";
+		}
+	}
+	return s;
+}
+
+/*@GET
+@Path("/fill/{id}/{name}/{age}/{salary}")
+@Produces("application/json")*/
+public String fill(/*@PathParam("name")*/ String name,/*@PathParam("id")*/ int id,/*@PathParam("age")*/ int age,/*@PathParam("salary")*/ int salary)
+{
+	
+	Person l=new Person(id,name,age,salary);
+	p.add(l);
+	return "successfully added";
+}
+
+/*@GET
+@Path("/getAll")
+@Produces("application/json")
+*/
+public String getAll()
+{	
+ String s="";
+	for(Person i : p)
+	{
+		s+=i.toString()+" ";
+	}
+	return s;
+}
+
+	
+	
+}

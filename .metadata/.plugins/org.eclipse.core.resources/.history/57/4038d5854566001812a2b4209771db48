@@ -1,0 +1,18 @@
+package com.ms;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+
+import org.springframework.stereotype.Service;
+
+public class MainService {
+
+
+@GET
+@Path("/serv")
+public String hello(@PathParam("name") String name)
+{
+	return "hello "+name;
+}
+}

@@ -1,0 +1,42 @@
+package mysqlstart;
+
+import java.sql.*;
+
+public class DBconnect {
+
+	private Connection con;
+	private Statement st;
+	private ResultSet rt;
+	
+	public DBconnect()
+	{
+		try
+		{
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/test","root","root");
+		    st=con.createStatement();
+		}
+		catch(Exception ex)
+		{
+			System.out.println("error"+ ex);
+		}
+	}
+	public void getData()
+	{
+		try
+		{
+			String query="select * from person";
+			rt=st.executeQuery(query);
+			while(rt.next())
+			{
+				String name=rt.getString("name");
+				String age=rt.getString("age");
+			}
+		}
+		catch(Exception ex)
+		{
+			System.out.println(ex);
+		}
+	}
+	
+}

@@ -1,0 +1,38 @@
+package com.ms;
+
+// import java.awt.PageAttributes.MediaType;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.springframework.stereotype.Service;
+
+
+
+@Service
+@Path("/servi")
+public class MainService {
+
+
+@GET
+@Path("/hai/{name}")
+@Produces(MediaType.APPLICATION_JSON)
+
+public Response hello(@PathParam("name") String name) throws JSONException
+{
+	Person a[]=new Person[1];
+	Person p=new Person(1,name,54,45);
+	a[0]=p;
+	JSONObject obj=new JSONObject();
+	obj.put("Person",p);
+	//return obj;
+	return Response.status(Status.OK).entity(obj).type(MediaType.APPLICATION_JSON).build();
+}
+}

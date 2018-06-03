@@ -1,0 +1,60 @@
+package com.ms;
+
+// import java.awt.PageAttributes.MediaType;
+
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.springframework.stereotype.Service;
+
+
+
+@Service
+@Path("/servi")
+public class MainService {
+
+
+@GET
+@Path("/hai/{name}")
+@Produces("text/plain")
+
+public String hello(@PathParam("name") String name)
+{
+	JSONObject json = new JSONObject();
+	 JSONArray array=new JSONArray();
+	    array.put("1");
+	    array.put("2");
+	    try {
+			json.put("friends", array);
+		} catch (JSONException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+	    String s;
+		try {
+			s = json.toString(2);
+		} catch (JSONException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	// Person a[]=new Person[1];
+// 	Person p=new Person(1,name,54,45);
+	// a[0]=p;
+	///JSONObject obj=new JSONObject();
+	// obj.put("Person",p);
+	//return obj;
+	//return Response.status(Status.OK).entity(obj).type(MediaType.APPLICATION_JSON).build();
+return s;
+}
+
+}

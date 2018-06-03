@@ -1,0 +1,5 @@
+package com.ms.pckg1;
+
+public class Person {
+
+}

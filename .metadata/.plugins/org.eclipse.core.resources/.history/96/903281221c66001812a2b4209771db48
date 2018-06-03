@@ -1,0 +1,5 @@
+package mysqlstart;
+
+public class DBconnect {
+
+}
